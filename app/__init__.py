@@ -66,8 +66,6 @@ def create_app(config_class=Config):
             'msg': 'Missing Authorization Header'
         }), 401
 
-
-
     @jwt.expired_token_loader
     def expired_token_callback(callback):
         return jsonify({

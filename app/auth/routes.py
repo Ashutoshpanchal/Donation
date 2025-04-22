@@ -37,8 +37,6 @@ user_model = api.model('User', {
 @ns.route('/register')
 class Register(Resource):
     @ns.expect(register_model)
-    @ns.response(200, 'OTP sent successfully')
-    @ns.response(400, 'Invalid input')
     def post(self):
         """Register a new user or request OTP for existing user"""
         data = request.json
@@ -65,8 +63,6 @@ class Register(Resource):
 @ns.route('/verify')
 class Verify(Resource):
     @ns.expect(verify_model)
-    @ns.response(200, 'Authentication successful')
-    @ns.response(400, 'Invalid input')
     def post(self):
         """Verify OTP and authenticate user"""
         data = request.json
